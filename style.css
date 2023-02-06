@@ -5,6 +5,8 @@
 #color-palette {
     width: 99%;
     text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .color {
@@ -15,6 +17,13 @@
     margin-left: 10px;
 }
 
-.color:hover{
-    border: red solid 1px;
+.color:hover, 
+.button-random-color:hover{
+    border: pink solid 1px;
+}
+
+.button-random-color {
+        border: black solid 1px;
+        margin-left: 10px;
+        border-radius: 10px;
 }
