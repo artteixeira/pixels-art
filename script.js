@@ -17,6 +17,7 @@ function randomizeColor() {
 const SaveStorage = (localStorageColors) => {
   const color = document.querySelectorAll('.color');
   color[0].style.backgroundColor = 'black';
+  color[0].classList.add('selected');
   for (let i = 1; i < color.length; i += 1) {
     color[i].style.backgroundColor = localStorageColors[i - 1];
   }
@@ -25,6 +26,7 @@ const SaveStorage = (localStorageColors) => {
 function setColor() {
   const color = document.querySelectorAll('.color');
   color[0].style.backgroundColor = 'black';
+  color[0].classList.add('selected');
   const colors = [];
   for (let i = 1; i < color.length; i += 1) {
     const random = randomizeColor();
@@ -52,7 +54,35 @@ const randomizeColorButton = () => {
   colorPalette.appendChild(randomColorButton);
 };
 
+const addPixelToBoard = (n) => {
+  const board = document.getElementById('pixel-board');
+  for (let i = 1; i <= n; i += 1) {
+    const pai = document.createElement('div');
+    board.appendChild(pai);
+    for (let j = 1; j <= n; j += 1) {
+      const pixel = document.createElement('div');
+      pixel.classList.add('pixel');
+      pai.appendChild(pixel);
+    }
+  }
+};
+
+const CreateSelect = (event) => {
+  const selected = document.querySelector('.selected');
+  selected.classList.remove('selected');
+  event.target.classList.add('selected');
+};
+
+const addSelected = () => {
+  const color = document.querySelectorAll('.color');
+  for (let i = 0; i < color.length; i += 1) {
+    color[i].addEventListener('click', CreateSelect);
+  }
+};
+
 createPalette();
 randomizeColorButton();
+addSelected();
+addPixelToBoard(5);
 
 window.onload = loadStorage;

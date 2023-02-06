@@ -18,12 +18,30 @@
 }
 
 .color:hover, 
-.button-random-color:hover{
-    border: pink solid 1px;
+#button-random-color:hover{
+    border: blue solid 1.5px;
 }
 
-.button-random-color {
+#button-random-color {
         border: black solid 1px;
         margin-left: 10px;
         border-radius: 10px;
 }
+
+.pixel {
+    height: 40px;
+    width: 40px;
+    border: black solid 1px;
+    background-color: white;
+}
+
+#pixel-board div{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#pixel-board {
+    padding-top: 13px;
+}
+
