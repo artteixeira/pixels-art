@@ -7,6 +7,7 @@
     text-align: center;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .color {
@@ -18,7 +19,8 @@
 }
 
 .color:hover, 
-#button-random-color:hover{
+#button-random-color:hover,
+#clear-board:hover{
     border: blue solid 1.5px;
 }
 
@@ -45,3 +47,16 @@
     padding-top: 13px;
 }
 
+#clear-board {
+    border: black solid 1px;
+    margin-left: 10px;
+    border-radius: 10px;
+    flex-basis: 20%;
+}
+
+#mid {
+    padding-top: 10px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}

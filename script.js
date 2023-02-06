@@ -98,3 +98,21 @@ const fillPixel = () => {
 };
 
 fillPixel();
+
+const cleanPixel = () => {
+  const pixel = document.querySelectorAll('.pixel');
+  for (let i = 0; i < pixel.length; i += 1) {
+    pixel[i].style.backgroundColor = 'white';
+  }
+};
+
+const clearButton = () => {
+  const mid = document.querySelector('#mid');
+  const clearBtn = document.createElement('button');
+  clearBtn.setAttribute('id', 'clear-board');
+  clearBtn.innerText = 'Limpar';
+  mid.appendChild(clearBtn);
+  clearBtn.addEventListener('click', cleanPixel);
+};
+
+clearButton();
