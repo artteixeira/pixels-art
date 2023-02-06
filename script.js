@@ -82,7 +82,19 @@ const addSelected = () => {
 
 createPalette();
 randomizeColorButton();
-addSelected();
 addPixelToBoard(5);
+addSelected();
+loadStorage();
 
-window.onload = loadStorage;
+const fillPixel = () => {
+  const pixel = document.querySelectorAll('.pixel');
+  for (let i = 0; i < pixel.length; i += 1) {
+    pixel[i].addEventListener('click', (event) => {
+      const selected = document.querySelector('.selected').style.backgroundColor;
+      const oClick = event.target;
+      oClick.style.backgroundColor = selected;
+    });
+  }
+};
+
+fillPixel();
