@@ -9,8 +9,8 @@ function createPalette() {
 
 function randomizeColor() {
   return `rgb(
-    ${Math.floor(Math.random() * 256)}, 
-    ${Math.floor(Math.random() * 256)}, 
+    ${Math.floor(Math.random() * 256)},
+    ${Math.floor(Math.random() * 256)},
     ${Math.floor(Math.random() * 256)})`;
 }
 
@@ -157,7 +157,8 @@ const BoardSize = () => {
     if (input.value === '') {
       alert('Board inválido!');
       removeDiv();
-      return addPixelToBoard(5);
+      addPixelToBoard(5);
+      return fillPixel();
     }
     if (input.value < 5) input.value = 5;
     if (input.value > 50) input.value = 50;
@@ -165,8 +166,15 @@ const BoardSize = () => {
     addPixelToBoard(input.value);
     localStorage.removeItem('pixelBoard');
     fillPixel();
-    localStorage.setItem('boardSize', html);
+    localStorage.setItem('boardSize', input.value);
   });
 };
 
 BoardSize();
+
+const test = () => {
+  const saved = localStorage('boardSize');
+  if (saved !== null) addPixelToBoard(saved);
+}
+
+test();
