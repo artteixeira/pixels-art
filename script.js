@@ -86,19 +86,6 @@ addPixelToBoard(5);
 addSelected();
 loadStorage();
 
-const fillPixel = () => {
-  const pixel = document.querySelectorAll('.pixel');
-  for (let i = 0; i < pixel.length; i += 1) {
-    pixel[i].addEventListener('click', (event) => {
-      const selected = document.querySelector('.selected').style.backgroundColor;
-      const oClick = event.target;
-      oClick.style.backgroundColor = selected;
-    });
-  }
-};
-
-fillPixel();
-
 const cleanPixel = () => {
   const pixel = document.querySelectorAll('.pixel');
   for (let i = 0; i < pixel.length; i += 1) {
@@ -116,3 +103,40 @@ const clearButton = () => {
 };
 
 clearButton();
+
+const fillPixel = () => {
+  const pixel = document.querySelectorAll('.pixel');
+  for (let i = 0; i < pixel.length; i += 1) {
+    pixel[i].addEventListener('click', (event) => {
+      const selected = document.querySelector('.selected').style.backgroundColor;
+      const oClick = event.target;
+      oClick.style.backgroundColor = selected;
+      if (oClick.style.backgroundColor !== 'white') {
+        localStorage.setItem('pixelBoard', (document.querySelector('#pixel-board').innerHTML));
+      }
+    });
+  }
+};
+
+// const saveBoard = () => {
+//   const pixel = document.querySelectorAll('.pixel');
+//   for (let i = 0; i < pixel.length; i += 1) {
+//     pixel[i].addEventListener('click', (event) => {
+//       if (event.target.style.backgroundColor !== 'white') {
+//         localStorage.setItem('boardComplete', (document.querySelector('#pixel-board').innerHTML));
+//       }
+//     });
+//   }
+// };
+
+const loadBoard = () => {
+  const savedBoard = localStorage.getItem('pixelBoard');
+  const board = document.querySelector('#pixel-board');
+
+  if (savedBoard !== null) board.innerHTML = savedBoard;
+  fillPixel();
+};
+
+fillPixel();
+// saveBoard();
+loadBoard();
