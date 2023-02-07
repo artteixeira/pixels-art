@@ -104,6 +104,8 @@ const clearButton = () => {
 
 clearButton();
 
+const html = document.querySelector('#pixel-board');
+
 const fillPixel = () => {
   const pixel = document.querySelectorAll('.pixel');
   for (let i = 0; i < pixel.length; i += 1) {
@@ -112,31 +114,59 @@ const fillPixel = () => {
       const oClick = event.target;
       oClick.style.backgroundColor = selected;
       if (oClick.style.backgroundColor !== 'white') {
-        localStorage.setItem('pixelBoard', (document.querySelector('#pixel-board').innerHTML));
+        localStorage.setItem('pixelBoard', (html.innerHTML));
       }
     });
   }
 };
 
-// const saveBoard = () => {
-//   const pixel = document.querySelectorAll('.pixel');
-//   for (let i = 0; i < pixel.length; i += 1) {
-//     pixel[i].addEventListener('click', (event) => {
-//       if (event.target.style.backgroundColor !== 'white') {
-//         localStorage.setItem('boardComplete', (document.querySelector('#pixel-board').innerHTML));
-//       }
-//     });
-//   }
-// };
-
 const loadBoard = () => {
   const savedBoard = localStorage.getItem('pixelBoard');
-  const board = document.querySelector('#pixel-board');
 
-  if (savedBoard !== null) board.innerHTML = savedBoard;
+  if (savedBoard !== null) html.innerHTML = savedBoard;
   fillPixel();
 };
 
 fillPixel();
-// saveBoard();
 loadBoard();
+
+const CreateButtonsBoardSize = () => {
+  const mid = document.querySelector('#mid');
+  const inputCreate = document.createElement('input');
+  inputCreate.setAttribute('id', 'board-size');
+  inputCreate.setAttribute('min', '1');
+  inputCreate.setAttribute('type', 'number');
+  mid.appendChild(inputCreate);
+  const buttonCreate = document.createElement('button');
+  buttonCreate.setAttribute('id', 'generate-board');
+  buttonCreate.innerText = 'VQV';
+  mid.appendChild(buttonCreate);
+};
+
+CreateButtonsBoardSize();
+
+const removeDiv = () => {
+  const main = document.querySelector('main');
+  main.innerHTML = '';
+};
+
+const BoardSize = () => {
+  const button = document.querySelector('#generate-board');
+  button.addEventListener('click', () => {
+    const input = document.querySelector('#board-size');
+    if (input.value === '') {
+      alert('Board inválido!');
+      removeDiv();
+      return addPixelToBoard(5);
+    }
+    if (input.value < 5) input.value = 5;
+    if (input.value > 50) input.value = 50;
+    removeDiv();
+    addPixelToBoard(input.value);
+    localStorage.removeItem('pixelBoard');
+    fillPixel();
+    localStorage.setItem('boardSize', html);
+  });
+};
+
+BoardSize();

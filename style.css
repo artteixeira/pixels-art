@@ -20,7 +20,8 @@
 
 .color:hover, 
 #button-random-color:hover,
-#clear-board:hover{
+#clear-board:hover
+#generate-board:hover{
     border: blue solid 1.5px;
 }
 
@@ -59,4 +60,18 @@
     display: flex;
     text-align: center;
     justify-content: center;
+}
+
+#board-size {
+    border: black solid 1px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 30px;
+}
+
+#generate-board {
+    border: black solid 1px;
+    margin-left: 10px;
+    border-radius: 10px;
+    width: 50px;
 }
