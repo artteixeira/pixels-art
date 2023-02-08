@@ -173,8 +173,8 @@ const BoardSize = () => {
 BoardSize();
 
 const test = () => {
-  const saved = localStorage('boardSize');
+  const saved = localStorage.getItem('boardSize');
   if (saved !== null) addPixelToBoard(saved);
-}
+};
 
 test();
