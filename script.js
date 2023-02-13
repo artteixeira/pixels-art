@@ -172,12 +172,12 @@ const BoardSize = () => {
 
 BoardSize();
 
-const test = () => {
-  const saved = JSON.parse(localStorage.getItem('boardSize'));
+const restoreBoardSize = () => {
+  const saved = localStorage.getItem('boardSize');
   if (saved !== null) {
     removeDiv();
     addPixelToBoard(saved);
   }
 };
 
-test();
+restoreBoardSize();
