@@ -1,77 +1,76 @@
 #title {
-    text-align: center;
+  text-align: center;
 }
 
 #color-palette {
-    width: 99%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  width: 99%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .color {
-    border: black solid 1px;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    margin-left: 10px;
+  border: black solid 1px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 
-.color:hover, 
+.color:hover,
 #button-random-color:hover,
-#clear-board:hover
-#generate-board:hover{
-    border: blue solid 1.5px;
+#clear-board:hover #generate-board:hover {
+  border: blue solid 1.5px;
 }
 
 #button-random-color {
-        border: black solid 1px;
-        margin-left: 10px;
-        border-radius: 10px;
+  border: black solid 1px;
+  margin-left: 10px;
+  border-radius: 10px;
 }
 
 .pixel {
-    height: 40px;
-    width: 40px;
-    border: black solid 1px;
-    background-color: white;
+  height: 40px;
+  width: 40px;
+  border: black solid 1px;
+  background-color: white;
 }
 
-#pixel-board div{
-    text-align: center;
-    display: flex;
-    justify-content: center;
+#pixel-board div {
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 #pixel-board {
-    padding-top: 13px;
+  padding-top: 13px;
 }
 
 #clear-board {
-    border: black solid 1px;
-    margin-left: 10px;
-    border-radius: 10px;
-    flex-basis: 20%;
+  border: black solid 1px;
+  margin-left: 10px;
+  border-radius: 10px;
+  flex-basis: 20%;
 }
 
 #mid {
-    padding-top: 10px;
-    display: flex;
-    text-align: center;
-    justify-content: center;
+  padding-top: 10px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
 #board-size {
-    border: black solid 1px;
-    margin-left: 10px;
-    border-radius: 10px;
-    width: 30px;
+  border: black solid 1px;
+  margin-left: 10px;
+  border-radius: 10px;
+  width: 30px;
 }
 
 #generate-board {
-    border: black solid 1px;
-    margin-left: 10px;
-    border-radius: 10px;
-    width: 50px;
+  border: black solid 1px;
+  margin-left: 10px;
+  border-radius: 10px;
+  width: 50px;
 }
