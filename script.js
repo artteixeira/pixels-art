@@ -1,6 +1,6 @@
 function createPalette() {
   const colorPalette = document.getElementById('color-palette');
-  for (let i = 0; i < 4; i += 1) {
+  for (let i = 0; i < 5; i += 1) {
     const colorButton = document.createElement('button');
     colorButton.classList.add('color');
     colorPalette.appendChild(colorButton);
